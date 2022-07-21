@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.vinay.catapp.domain.model.CatBreedModel" />
+
+        <variable
+            name="cartModel"
+            type="com.vinay.catapp.domain.model.CatBreedModel" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_16dp"
+        android:layout_marginEnd="@dimen/_16dp"
+        android:layout_marginTop="@dimen/_5dp"
+        android:layout_marginBottom="@dimen/_5dp">
+
+        <ImageView
+            android:id="@+id/iv_cat_image"
+            android:layout_width="@dimen/_74dp"
+            android:layout_height="@dimen/_74dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:padding="@dimen/_5dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_breed_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            tools:text="TextView"
+            android:text="@{cartModel.name}"
+            android:textSize="@dimen/_18sp"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tv_breed_origin"
+            app:layout_constraintStart_toEndOf="@+id/iv_cat_image"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_breed_origin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="TextView"
+            android:text="@{cartModel.origin}"
+            android:textSize="@dimen/_12sp"
+            app:layout_constraintBottom_toTopOf="@+id/tv_breed_lifespan"
+            app:layout_constraintStart_toStartOf="@+id/tv_breed_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_breed_name" />
+
+        <TextView
+            android:id="@+id/tv_breed_lifespan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12sp"
+            android:text="@{cartModel.lifeSpan}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_breed_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_breed_origin"
+            tools:text="TextView" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_chevron_right_24" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.vinay.catapp.presentation.fragments.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_sendCashFragment"
+            app:destination="@id/sendCashFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sendCashFragment"
+        android:name="com.vinay.catapp.presentation.fragments.SendCashFragment"
+        android:label="Send Cash - {receiverName}"
+        tools:layout="@layout/fragment_send_cash">
+<!--        <action-->
+<!--            android:id="@+id/action_sendCashFragment_to_homeFragment"-->
+<!--            app:destination="@id/homeFragment"-->
+<!--            app:enterAnim="@anim/slide_in_right"-->
+<!--            app:exitAnim="@anim/slide_out_left"-->
+<!--            app:popEnterAnim="@anim/slide_in_left"-->
+<!--            app:popExitAnim="@anim/slide_out_right"-->
+<!--            app:popUpTo="@id/homeFragment" />-->
+        <deepLink
+            android:id="@+id/deepLink"
+            app:uri="www.navcomponent.com/{receiverName}/{test}" />
+    </fragment>
+</navigation>
